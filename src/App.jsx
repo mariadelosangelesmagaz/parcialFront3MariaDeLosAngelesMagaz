@@ -11,8 +11,6 @@ function App() {
 
   let grupo = [
     { id: 1, color: 'rojo'},
-    { id: 2, color: 'amarillo'},
-    { id: 3, color: 'azul'}
   ]
 
   return (
