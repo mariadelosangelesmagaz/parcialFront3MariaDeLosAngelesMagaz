@@ -1,33 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Card from './Components/Card'
+import Form from './Components/Form'
+import {useState} from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [ir, setIr] = useState({
+    card: {},
+    form: false
+  })
+
+  let grupo = [
+    { id: 1, color: 'rojo'},
+    { id: 2, color: 'amarillo'},
+    { id: 3, color: 'azul'}
+  ]
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {ir.form && <Form card={ir.card}/>}
+      {grupo.map((item) => <Card key={item.id} item={item} setIr={setIr}/>)}
     </>
   )
 }
